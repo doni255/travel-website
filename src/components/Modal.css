@@ -1,38 +1,78 @@
-/* Modal Background */
+/* Modal Overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh; /* Full viewport height */
   background: rgba(0, 0, 0, 0.5); /* Softer dark overlay */
   backdrop-filter: blur(8px); /* Blur effect for background */
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.3s ease-in-out;
+  padding: 20px; /* Prevents content from touching screen edges */
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 1; /* Ensures modal is on top of other content */
+}
+/* Fade-In & Fade-Out Effects */
+.modal-overlay.show {
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* Modal Box */
+.modal-overlay.hide {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none; /* Prevents interaction while fading out */
+}
+
+/* Modal Content */
 .modal-content {
-  background: #fdf6ec; /* Soft Sand Beige */
-  border: 2px solid rgba(255, 255, 255, 0.6); /* Soft white border */
-  width: 500px;
+  background: #fdf6ec;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  width: 50%;
+  margin-top: auto;
   max-width: 90%;
+  max-height: 85vh;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3); /* More depth */
-  padding-bottom: 20px;
+  overflow-y: auto;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  padding: 20px;
   border-radius: 15px;
-  transform: scale(0.95);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Open Animation */
+.modal-overlay.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Close (Fade-Out) Animation */
+.modal-overlay.hide .modal-content {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Scrollable Content inside Modal */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
 /* Open Modal Effect */
 .modal-overlay.show .modal-content {
-  transform: scale(1);
   opacity: 1;
+  transform: scale(1);
 }
 
 /* Close Button */
@@ -41,13 +81,13 @@
   top: 15px;
   right: 15px;
   font-size: 24px;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e63946;
-  background: rgba(255, 255, 255, 0.8);
+  color: white;
+  background: #e63946;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -55,17 +95,16 @@
 }
 
 .close-btn:hover {
-  background: #e63946; /* Coral Red */
-  color: white;
+  background: #ff4d4d;
 }
 
-/* Modal Header Image */
-.modal-image {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+/* Modal Header */
+.modal-header {
+  position: sticky;
+  top: 0;
+  background: #fdf6ec;
+  padding: 10px;
+  z-index: 10;
 }
 
 /* Modal Text */
@@ -78,7 +117,7 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #1e293b; /* Deep Navy */
+  color: #1e293b;
 }
 
 .modal-text p {
@@ -87,30 +126,25 @@
   margin-bottom: 15px;
 }
 
-.modal-text h3 {
-  font-size: 18px;
-  color: #222;
-  margin-top: 10px;
-}
-
 /* Swiper Carousel */
 .carousel-container {
   width: 100%;
   padding: 15px;
   position: relative;
+  overflow: hidden;
 }
 
 /* Individual Slide */
 .carousel-slide {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 400px;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e5e5e5; /* Warm Gray */
+  background: #e5e5e5;
 }
 
 /* Full-Width Place Image */
@@ -135,67 +169,151 @@
 .carousel-text {
   font-size: 20px;
   font-weight: bold;
-  color: #ffd700; /* Golden Yellow */
+  color: #ffd700;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Selected Place Details */
+.selected-place-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headers */
+.selected-place-container h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1e293b;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+/* Flexbox for Accommodation & Travel Costs */
+.accommodation-travel-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Accommodation List */
+.accommodation-list,
+.travel-costs {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Accommodation List Items */
+.accommodation-list ul,
+.travel-costs ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-/* Swiper Navigation Buttons */
-.swiper-button-prev,
-.swiper-button-next {
-  color: rgba(255, 255, 255, 0.8) !important; /* Subtle Transparency */
-  width: 40px !important;
-  height: 40px !important;
+.accommodation-list li,
+.travel-costs li {
+  font-size: 14px;
+  color: #555;
+  padding: 8px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
 }
 
-/* Pagination Dots */
-.swiper-pagination-bullet {
-  background: white !important;
-  opacity: 0.7;
+/* Icons */
+.accommodation-list li::before {
+  content: "🏨";
+  font-size: 16px;
 }
 
-.swiper-pagination-bullet-active {
-  background: #ff7f50 !important; /* Sunset Coral */
-  opacity: 1;
+.travel-costs li::before {
+  content: "💰";
+  font-size: 16px;
 }
 
-/* FADE IN */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.3s forwards ease-in-out;
+/* Activities Section */
+.activities-container {
+  background: #fdf6ec;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* FADE OUT */
-.fade-out {
-  opacity: 1;
-  animation: fadeOut 0.3s forwards ease-in-out;
+/* Activities List */
+.activities-container ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0;
+  list-style: none;
 }
 
-/* FADE-IN Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
+.activities-container li {
+  font-size: 14px;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.activities-container li::before {
+  content: "🎯";
+  font-size: 16px;
+}
+
+/* Reviews Section */
+.reviews-container {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Individual Review */
+.review {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.review:last-child {
+  border-bottom: none;
+}
+
+.review p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.review strong {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
-/* FADE-OUT Animation */
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: scale(1);
+  .accommodation-travel-container {
+    flex-direction: column;
   }
-  to {
-    opacity: 0;
-    transform: scale(0.9);
+
+  .activities-container ul {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
