@@ -12,19 +12,19 @@
   align-items: center;
   padding: 20px; /* Prevents content from touching screen edges */
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
+  transform: scale(1);
+  transition: opacity 0.5s ease-in-out;
+  /* transform: scale(0.9);
+  transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out; */
   z-index: 999; /* Ensures modal is on top of other content */
 }
 /* Fade-In & Fade-Out Effects */
 .modal-overlay.show {
   opacity: 1;
-  transform: scale(1);
 }
 
 .modal-overlay.hide {
   opacity: 0;
-  transform: scale(0.9);
   pointer-events: none; /* Prevents interaction while fading out */
 }
 
@@ -42,7 +42,10 @@
   border-radius: 18px;
   overflow-y: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  /* 🔥 Animation */
+  transform: translateY(-20px) scale(0.9);
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
   /* max-width: 90%;
   max-height: 85vh; */
   /* position: relative; */
@@ -52,16 +55,16 @@
   transform: scale(0.9); */
 }
 
-/* Open Animation */
+/* 🔹 MODAL OPEN ANIMATION */
 .modal-overlay.show .modal-content {
-  transform: scale(1);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 
-/* Close (Fade-Out) Animation */
+/* 🔹 MODAL CLOSE ANIMATION */
 .modal-overlay.hide .modal-content {
+  transform: translateY(-20px) scale(0.9);
   opacity: 0;
-  transform: scale(0.9);
 }
 
 /* Scrollable Content inside Modal */
@@ -328,7 +331,7 @@
   .modal-content {
     width: 95%;
     max-height: 90vh; /* Ensures scrolling works */
-    height: 90vh; /* Prevents content from getting cut */
+    height: auto;
     overflow-y: auto;
     padding: 20px;
   }
