@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Modal.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -7,9 +7,23 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
+  const modalRef = useRef(null);
   const [isClosing, setIsClosing] = useState(false);
   const [isVisible, setIsVisible] = useState(false); // Controls mounting
   const [isOpening, setIsOpening] = useState(false); // Triggers fade-in effect
+
+  // Auto-scroll to top when modal opens
+  useEffect(() => {
+    if (modalRef.current) {
+      modalRef.current.scrollTop = 0;
+    }
+
+    // Prevent background scrolling when modal is open
+    document.body.classList.add("modal-open");
+    return () => {
+      document.body.classList.remove("modal-open");
+    };
+  }, [selectedPlace]);
 
   // Delay modal appearance for fade-in effect
   useEffect(() => {
@@ -91,6 +105,7 @@ function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
             <div className="accommodation-travel-container">
               {/* Accommodation Section */}
               <div className="accommodation-list">
+                <h4>🏡 Recommended Stays</h4>
                 <ul>
                   {selectedPlace.accommodation?.map((hotel, index) => (
                     <li key={index}>{hotel}</li>
@@ -100,6 +115,7 @@ function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
 
               {/* Travel Costs Section */}
               <div className="travel-costs">
+                <h4>💰 Estimated Costs</h4>
                 <ul>
                   <li>
                     <strong>✈️ Flight:</strong>{" "}
@@ -125,7 +141,7 @@ function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
             <div className="activities-container">
               <ul>
                 {selectedPlace.activities?.map((activity, index) => (
-                  <li key={index}>{activity}</li>
+                  <li key={index}>🎡 {activity}</li>
                 ))}
               </ul>
             </div>
