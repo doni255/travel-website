@@ -18,11 +18,11 @@ video {
 }
 
 .hero-container {
-  background: url("images/img-home.jpg") center center/cover no-repeat;
+  background: url("/images/img-home.jpg") center center/cover no-repeat;
 }
 
 .hero-container.about-background {
-  background: url("images/about.jpg") center center/cover no-repeat;
+  background: url("/images/about.jpg") center center/cover no-repeat;
 }
 
 .hero-container > h1 {
