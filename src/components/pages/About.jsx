@@ -7,7 +7,7 @@ import FloatingButton from "../FloatingButton";
 function About() {
   return (
     <>
-      <FloatingButton />
+      {/* <FloatingButton /> */}
       <AboutSection />
       <RecentTrips />
       <Footer />
