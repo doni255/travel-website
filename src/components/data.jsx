@@ -6,6 +6,7 @@ export const data = [
     bodyText:
       "Explore Indonesia, an archipelago with stunning islands and cultural heritage.",
     label: "Adventure",
+    continent: "Asia",
     countryInfo: {
       country: "Indonesia",
       flag: "🇮🇩",
@@ -159,6 +160,7 @@ export const data = [
     bodyText:
       "Discover Singapore, a futuristic city-state with vibrant attractions.",
     label: "Luxury",
+    continent: "Asia",
     countryInfo: {
       country: "Singapore",
       flag: "🇸🇬",
@@ -263,6 +265,7 @@ export const data = [
     text: "Trip In Italy",
     bodyText: "Experience Italy, a country of art, history, and gastronomy.",
     label: "Adventure",
+    continent: "Europe",
     countryInfo: {
       country: "Italy",
       flag: "🇮🇹",
@@ -416,6 +419,7 @@ export const data = [
     text: "Trip In France",
     bodyText: "Fall in love with France, a land of romance and culture.",
     label: "Luxury",
+    continent: "Europe",
     countryInfo: {
       country: "France",
       flag: "🇫🇷",
@@ -569,6 +573,7 @@ export const data = [
     text: "Trip In Japan",
     bodyText: "Visit Japan, where tradition meets technology.",
     label: "Adventure",
+    continent: "Asia",
     countryInfo: {
       country: "Japan",
       flag: "🇯🇵",
@@ -745,6 +750,7 @@ export const data = [
     text: "Trip In Dubai",
     bodyText: "Explore Dubai, the city of skyscrapers and desert adventures.",
     label: "Luxury",
+    continent: "Asia",
     countryInfo: {
       country: "United Arab Emirates",
       flag: "🇦🇪",
@@ -856,6 +862,89 @@ export const data = [
             name: "David",
             country: "🇺🇸",
             comment: "Desert Safari was an unforgettable adventure!",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 7,
+    src: "images/USA.jpg",
+    text: "Trip In USA",
+    bodyText: "Experience the diverse culture and landscapes of the USA.",
+    label: "Urban",
+    continent: "America", // ✅ Add Continent Here
+    countryInfo: {
+      country: "United States",
+      flag: "🇺🇸",
+      capital: "Washington D.C.",
+      language: "English",
+      currency: "USD ($)",
+      bestTimeToVisit: "Spring & Fall",
+      recommendedDuration: "10-20 days",
+    },
+    bestPlaces: [
+      {
+        name: "New York",
+        image: "images/newyork.jpg",
+        accommodation: [
+          "🏨 The Plaza Hotel",
+          "🏨 The Ritz-Carlton New York",
+          "🏨 The St. Regis New York",
+        ],
+        travelCosts: {
+          flight: "$300 - $800",
+          accommodation: "$150 - $500 per night",
+          food: "$20 - $100 per meal",
+          transport: "$5 - $30 (Subway, Taxis)",
+        },
+        activities: [
+          "🗽 Visit the Statue of Liberty",
+          "🎭 Watch a Broadway show",
+          "🍎 Explore Central Park",
+        ],
+        reviews: [
+          {
+            name: "David",
+            country: "🇺🇸",
+            comment: "New York is the city that never sleeps, full of life!",
+          },
+          {
+            name: "Sophie",
+            country: "🇬🇧",
+            comment: "Central Park is a peaceful oasis in the bustling city!",
+          },
+        ],
+      },
+      {
+        name: "Los Angeles",
+        image: "images/los-angales.jpg",
+        accommodation: [
+          "🏨 The Ritz-Carlton Los Angeles",
+          "🏨 Waldorf Astoria Beverly Hills",
+          "🏨 The Peninsula Beverly Hills",
+        ],
+        travelCosts: {
+          flight: "$300 - $800",
+          accommodation: "$200 - $600 per night",
+          food: "$30 - $150 per meal",
+          transport: "$5 - $30 (Metro, Taxis)",
+        },
+        activities: [
+          "🌴 Relax on Santa Monica Beach",
+          "🎬 Visit Hollywood Walk of Fame",
+          "🎢 Explore Universal Studios Hollywood",
+        ],
+        reviews: [
+          {
+            name: "Sophie",
+            country: "🇬🇧",
+            comment: "Los Angeles is the entertainment capital of the world!",
+          },
+          {
+            name: "David",
+            country: "🇺🇸",
+            comment: "Santa Monica Beach is the perfect place to unwind!",
           },
         ],
       },
