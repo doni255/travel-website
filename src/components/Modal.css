@@ -120,6 +120,14 @@
   padding: 20px 0;
 }
 
+.flag {
+  width: 30px; /* ✅ Adjust flag size */
+  height: 20px; /* ✅ Maintain aspect ratio */
+  border-radius: 4px; /* ✅ Slight rounding for a modern look */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* ✅ Subtle shadow for clarity */
+  object-fit: cover; /* ✅ Ensures the flag scales properly */
+}
+
 .modal-text h2 {
   font-size: 28px;
   font-weight: bold;

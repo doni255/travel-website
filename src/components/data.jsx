@@ -9,7 +9,7 @@ export const data = [
     continent: "Asia",
     countryInfo: {
       country: "Indonesia",
-      flag: "🇮🇩",
+      flag: "https://flagcdn.com/id.svg",
       capital: "Jakarta",
       language: "Indonesian",
       currency: "IDR (Rupiah)",
@@ -163,7 +163,7 @@ export const data = [
     continent: "Asia",
     countryInfo: {
       country: "Singapore",
-      flag: "🇸🇬",
+      flag: "https://flagcdn.com/sg.svg",
       capital: "Singapore",
       language: "English, Mandarin, Malay, Tamil",
       currency: "SGD (Singapore Dollar)",
@@ -268,7 +268,7 @@ export const data = [
     continent: "Europe",
     countryInfo: {
       country: "Italy",
-      flag: "🇮🇹",
+      flag: "https://flagcdn.com/it.svg",
       capital: "Rome",
       language: "Italian",
       currency: "EUR (Euro)",
@@ -422,7 +422,7 @@ export const data = [
     continent: "Europe",
     countryInfo: {
       country: "France",
-      flag: "🇫🇷",
+      flag: "https://flagcdn.com/fr.svg",
       capital: "Paris",
       language: "French",
       currency: "EUR (Euro)",
@@ -576,7 +576,7 @@ export const data = [
     continent: "Asia",
     countryInfo: {
       country: "Japan",
-      flag: "🇯🇵",
+      flag: "https://flagcdn.com/jp.svg",
       capital: "Tokyo",
       language: "Japanese",
       currency: "JPY (Yen)",
@@ -753,7 +753,7 @@ export const data = [
     continent: "Asia",
     countryInfo: {
       country: "United Arab Emirates",
-      flag: "🇦🇪",
+      flag: "https://flagcdn.com/ae.svg",
       capital: "Abu Dhabi",
       language: "Arabic",
       currency: "AED (Dirham)",
@@ -876,7 +876,7 @@ export const data = [
     continent: "America", // ✅ Add Continent Here
     countryInfo: {
       country: "United States",
-      flag: "🇺🇸",
+      flag: "https://flagcdn.com/us.svg",
       capital: "Washington D.C.",
       language: "English",
       currency: "USD ($)",
@@ -950,4 +950,5 @@ export const data = [
       },
     ],
   },
+  
 ];

@@ -1,5 +1,5 @@
 .cards {
-  padding: 4rem;
+  padding: 1.5rem;
   background: #fff;
 }
 
@@ -11,8 +11,8 @@ h1 {
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 1120px;
-  width: 90%;
+  max-width: 1500px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -22,20 +22,39 @@ h1 {
 }
 
 .cards__items {
-  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap; /* ✅ Allows multiple rows */
+  justify-content: space-between; /* ✅ Spreads cards evenly */
+  gap: 20px;
+  padding: 0;
+  list-style: none; /* ✅ Removes default list styles */
+  margin: 0 0 50px;
 }
 
+/* ✅ Make sure cards take up 1/3 of the row */
 .cards__item {
-  display: flex;
-  flex: 1;
-  margin: 0 1rem;
+  flex: 1 1 calc(33.33% - 20px); /* ✅ Each card takes 1/3 of the row */
+  max-width: calc(33.33% - 20px); /* ✅ Prevents stretching */
+  min-width: 280px; /* ✅ Ensures a minimum size */
+  min-height: 350px;
+  background: white;
   border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.few-cards {
+  justify-content: center;
+}
+
+.few-cards .cards__item {
+  max-width: 550px;
 }
 
 .cards__item__link {
   display: flex;
   flex-flow: column;
   width: 100%;
+  height: 100%;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
   -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.17));
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.17));
@@ -47,7 +66,7 @@ h1 {
 .cards__item__pic-wrap {
   position: relative;
   width: 100%;
-  padding-top: 67%;
+  padding-top: 80%;
   overflow: hidden;
 }
 
@@ -108,14 +127,18 @@ h1 {
 @media only screen and (min-width: 1200px) {
 }
 
-@media only screen and (min-width: 1024px) {
-  .cards__items {
-    display: flex;
+/* ✅ Responsive: 2 Cards Per Row on Tablets */
+@media (max-width: 1024px) {
+  .cards__item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
 }
 
-@media only screen and (max-width: 1024px) {
+/* ✅ Responsive: 1 Card Per Row on Mobile */
+@media (max-width: 768px) {
   .cards__item {
-    margin-bottom: 2rem;
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }

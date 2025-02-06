@@ -33,7 +33,7 @@
 .popup-overlay {
   position: fixed;
   bottom: 70px;
-  right: 20px;
+  right: -400px;
 
   width: auto;
   height: auto;
@@ -45,6 +45,7 @@
 }
 
 .popup-overlay.show {
+  right: 20px;
   opacity: 1;
   visibility: visible;
 }

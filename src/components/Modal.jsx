@@ -5,6 +5,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import twemoji from "twemoji";
 
 function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
   const modalRef = useRef(null);
@@ -64,7 +65,12 @@ function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
         {/* Destination Overview */}
         <div className="modal-text">
           <h2>
-            {trip.text} {trip.countryInfo?.flag}
+            {trip.text}{" "}
+            <img
+              src={trip.countryInfo?.flag}
+              alt={trip.countryInfo?.country}
+              className="flag"
+            />
           </h2>
           <p>{trip.bodyText}</p>
         </div>
