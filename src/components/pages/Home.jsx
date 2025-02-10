@@ -10,7 +10,7 @@ function Home() {
     <>
       <FloatingButton />
       <HeroSection />
-      <RecentTrips />
+      <RecentTrips /> 
       <Footer />
     </>
   );

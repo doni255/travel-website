@@ -25,6 +25,8 @@ export const data = [
     bestPlaces: [
       {
         name: "Bali",
+        lat: -8.4095,
+        lng: 115.1889,
         image: "images/bali-min.jpg",
         accommodation: [
           "🏨 Bali Resort & Spa",
@@ -48,16 +50,38 @@ export const data = [
             name: "Alice",
             country: "🇺🇸",
             comment: "Bali is paradise! The beaches and food are amazing.",
+            profilePic: "images/alice.jpg",
           },
           {
             name: "Kenji",
             country: "🇯🇵",
             comment: "Ubud’s jungle resorts are the best place to relax.",
+            profilePic: "images/alice.jpg",
+          },
+          {
+            name: "Sophie",
+            country: "🇬🇧",
+            comment: "Kuta Beach is perfect for surfing and sunsets.",
+            profilePic: "images/alice.jpg",
+          },
+          {
+            name: "Sophie",
+            country: "🇬🇧",
+            comment: "Kuta Beach is perfect for surfing and sunsets.",
+            profilePic: "images/alice.jpg",
+          },
+          {
+            name: "Sophie",
+            country: "🇬🇧",
+            comment: "Kuta Beach is perfect for surfing and sunsets.",
+            profilePic: "images/alice.jpg",
           },
         ],
       },
       {
         name: "Jakarta",
+        lat: -6.2088,
+        lng: 106.8456,
         image: "images/jakarta-min.jpg",
         accommodation: [
           "🌆 Jakarta Grand Hyatt",
@@ -84,6 +108,8 @@ export const data = [
       },
       {
         name: "Yogyakarta",
+        lat: -7.7956,
+        lng: 110.3695,
         image: "images/yogyakarta-min.jpg",
         accommodation: ["🏯 Phoenix Hotel", "🏕️ Greenhost Boutique Hotel"],
         travelCosts: {
@@ -950,5 +976,4 @@ export const data = [
       },
     ],
   },
-  
 ];

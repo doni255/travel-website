@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./HeaderWithFilter.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const continents = ["All", "Asia", "Europe", "America"];
 
@@ -10,7 +11,10 @@ const HeaderWithFilter = ({ selectedContinent, handleFilterChange }) => {
     <div className="header-container">
       <div className="header-content">
         <div className="header-text">
-          <h1>Explore Recent Trips</h1>
+          <h1>
+            {/* <FontAwesomeIcon icon="globe" className="globe-icon" /> */}
+            Explore Recent Trips
+          </h1>
           <p className="subtext">
             Discover unique destinations and filter by continent.
           </p>

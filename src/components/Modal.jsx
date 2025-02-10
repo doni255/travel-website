@@ -5,7 +5,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import twemoji from "twemoji";
 
 function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
   const modalRef = useRef(null);
@@ -147,7 +146,7 @@ function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
             <div className="activities-container">
               <ul>
                 {selectedPlace.activities?.map((activity, index) => (
-                  <li key={index}>🎡 {activity}</li>
+                  <li key={index}> {activity}</li>
                 ))}
               </ul>
             </div>
@@ -157,6 +156,13 @@ function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
             <div className="reviews-container">
               {selectedPlace.reviews?.map((review, index) => (
                 <div key={index} className="review">
+                  {review.profilePic && (
+                    <img
+                      src={review.profilePic}
+                      alt={review.name}
+                      className="profile-pic-rounded"
+                    />
+                  )}
                   <p>
                     <strong>
                       {review.name} {review.country}
