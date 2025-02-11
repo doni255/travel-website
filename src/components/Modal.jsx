@@ -59,7 +59,7 @@ function Modal({ trip, onClose, selectedPlace, onSelectPlace }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-btn" onClick={handleClose}>
           &times;
-        </button>
+        </button> 
 
         {/* Destination Overview */}
         <div className="modal-text">
