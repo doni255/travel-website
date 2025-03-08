@@ -7,6 +7,7 @@ import Products from "./components/pages/Products";
 import Services from "./components/pages/Services";
 import SignUp from "./components/pages/SignUp";
 import About from "./components/pages/About";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/sign-up" element={<SignUp />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </>
